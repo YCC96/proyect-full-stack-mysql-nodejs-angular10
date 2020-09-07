@@ -1,0 +1,114 @@
+<h2 style="margin-top: 30px;">Listado de clientes</h2>
+<hr>
+<table class="table text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">cliente_id</th>
+        <th scope="col">Nombre de usuario</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Estatura</th>
+        <th scope="col">GEB</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of listClientes; let i = index">
+        <th scope="row">{{ cliente.cliente_id }}</th>
+        <td>{{ cliente.nombre_usuario }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.apellidos }}</td>
+        <td>{{ cliente.edad }}</td>
+        <td>{{ cliente.correo_electronico }}</td>
+        <td>{{ cliente.peso }}</td>
+        <td>{{ cliente.estatura }}</td>
+        <td>{{ cliente.geb }}</td>
+        <td style="cursor: pointer;"><a (click)="editarCliente(cliente.cliente_id);">Agregar datos</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-right">
+      <button class="btn btn-outline-primary" (click)="abrirModalNewCliente()">Nuevo cliente</button>
+  </div>
+
+
+
+  <!-- Modal -->
+<div  class="modal fade" id="modalNewCliente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalNewClienteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalNewClienteLabel">Nuevo cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label for="">Nombre de usuario</label><br>
+          <input class="form-control" type="text" name="nombre_usuario" [(ngModel)]="dataNewCliente.nombre_usuario" placeholder="Nombre de usuario"><br>
+          <label for="">Nombre</label><br>
+          <input class="form-control" type="text" name="nombre" [(ngModel)]="dataNewCliente.nombre" placeholder="Nombre"><br>
+          <label for="">Apellidos</label><br>
+          <input class="form-control" type="text" name="apellidos" [(ngModel)]="dataNewCliente.apellidos" placeholder="Apellidos"><br>
+          <label for="">Correo</label><br>
+          <input class="form-control" type="text" name="correo_electronico" [(ngModel)]="dataNewCliente.correo_electronico" placeholder="Correo"><br>
+          <label for="">Contraseña</label><br>
+          <input class="form-control" type="text" name="contrasena" [(ngModel)]="dataNewCliente.contrasena" placeholder="Contraseña"><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="newCliente()">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div  class="modal fade" id="modalError" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalErrorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalErrorLabel">{{ textoTitle }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ textoModal }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div  class="modal fade" id="modalEditClient" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalEditClientLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditClientLabel">Agregar datos del cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label for="">Edad</label><br>
+          <input class="form-control" type="text" name="edad" [(ngModel)]="dataEditClient.edad" placeholder="Edad"><br>
+          <label for="">Estatura</label><br>
+          <input class="form-control" type="text" name="estatura" [(ngModel)]="dataEditClient.estatura" placeholder="Estatura"><br>
+          <label for="">Peso</label><br>
+          <input class="form-control" type="text" name="peso" [(ngModel)]="dataEditClient.peso" placeholder="Peso"><br>
+          <label for="">GEB</label><br>
+          <input class="form-control" type="text" name="geb" [(ngModel)]="dataEditClient.geb" placeholder="GEB"><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="editCliente()">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
