@@ -54,6 +54,8 @@ examen-punto4-vista-angular
 Proyecto construido con:
 - Angular 10
 
+Comandos para ejecutar el proyecto
+
 ```
 cd examen-punto4-vista-angular
 npm install
