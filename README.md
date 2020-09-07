@@ -8,9 +8,9 @@ BD construida en:
 
 Ejecutar script
 
-...
+```
 Punto 3 examen base de datos.sql
-...
+```
 
 
 examen-base
@@ -24,11 +24,11 @@ Proyecto construido con:
 
 Comandos para ejecutar el proyecto
 
-...
+```
 cd examen-base
 npm install
 npm run dev
-...
+```
 
 
 examen-servicios-rest
@@ -41,12 +41,12 @@ Proyecto construido con:
 
 Comandos para ejecutar el proyecto
 
-...
+```
 Ejecutar la base de datos MYSQL local con el script incial
 cd examen-servicios-rest
 npm install
 npm start
-...
+```
 
 examen-punto4-vista-angular
 =====================
@@ -54,11 +54,11 @@ examen-punto4-vista-angular
 Proyecto construido con:
 - Angular 10
 
-...
+```
 cd examen-punto4-vista-angular
 npm install
 ng serve
-...
+```
 
 
 Autor
